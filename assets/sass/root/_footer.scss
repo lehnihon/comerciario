@@ -1,10 +1,11 @@
 #footer{
-    background-color:#f0c529;
-    padding:3rem 0;
+    background-color:#FFF;
+    padding-bottom:3rem;
+    padding-top:3rem;
     color:#575345;
     a{
         &:hover{
-            color:#ff3800;
+            color:#635e9f;
         }
     }
     .footer-right{
@@ -34,7 +35,7 @@
     }
     .social-media{
         a{
-            background-color:#6b5401;
+            background-color:#525252;
             border-radius:50%;
             width:30px;
             display:inline-block;
@@ -46,7 +47,7 @@
             }
         }
         a:hover{
-            background-color:#d3a80c;
+            background-color:#525252;
         }
     }
     .news-input::placeholder{

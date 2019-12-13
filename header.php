@@ -13,9 +13,9 @@
 
 <body>
   <div id="header">
-    <div class="text-center">
+    <div class="text-center my-3">
       <a href="#">
-        <img class="img-fluid" src="<?php echo dirname( get_bloginfo('stylesheet_url'))."/assets/img/logo.jpg"; ?>"/>
+        <img class="img-fluid" src="<?php echo dirname( get_bloginfo('stylesheet_url'))."/assets/img/logo.png"; ?>"/>
       </a>
     </div>
     <div class="nav-container">
@@ -27,30 +27,26 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav social-media mr-auto">
               <li class="nav-item">
-                <a href="#"><i class="fab fa-facebook-square"></i></a>
-                <a target="_blank" href="https://www.instagram.com/explore/locations/161749811103625/sindicato-dos-psicologos-no-estado-de-sao-paulo/"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/falacomerciario/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/falacomerciario9/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UCdTUk87XZhEjaWGWWToWteg"><i class="fas fa-play"></i></a>
               </li>
             </ul>
             <ul class="navbar-nav main-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
+              <li class="nav-item <?php echo (get_query_var('pagename') == '')? 'active' : ''; ?>">
+                <a class="nav-link" href="<?php echo home_url( '' ); ?>">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Quem Somos</a>
+              <li class="nav-item <?php echo (get_query_var('pagename') == 'quem-somos')? 'active' : ''; ?>">
+                <a class="nav-link" href="<?php echo home_url( '/quem-somos' ); ?>">Quem Somos</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Diretoria</a>
+              <li class="nav-item <?php echo (get_query_var('pagename') == 'sindicalize')? 'active' : ''; ?>">
+                <a class="nav-link" href="<?php echo home_url( '/sindicalize' ); ?>">Sindicalize</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Sindicalize</a>
+              <li class="nav-item <?php echo (get_query_var('pagename') == 'fale-conosco-2')? 'active' : ''; ?>">
+                <a class="nav-link" href="<?php echo home_url( '/fale-conosco-2' ); ?>">Fale Conosco</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Fale Conosco</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Acordo e Convenções</a>
+              <li class="nav-item <?php echo (get_query_var('pagename') == 'acordo-e-convencoes')? 'active' : ''; ?>">
+                <a class="nav-link last" href="<?php echo home_url( '/acordo-e-convencoes' ); ?>">Acordo e Convenções</a>
               </li>
             </ul>
             <div class="navbar-nav search ml-auto">

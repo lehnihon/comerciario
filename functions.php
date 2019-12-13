@@ -26,6 +26,61 @@ function site_setup() {
 endif; // site_setup
 add_action( 'after_setup_theme', 'site_setup' );
 
+function register_post_type_video(){
+  $singular = 'Video';
+  $plural = 'Videos';
+  $labels = array(
+      'name' => $plural,
+      'singular_name' => $singular,
+      'add_new_item' => 'Adicionar novo '.$singular,
+      );
+  $args = array(
+      'labels' => $labels,
+      'public' => true,
+          'supports' => array('title','editor'),
+          'menu_position' => 5
+      );
+
+  register_post_type('video',$args);
+}
+add_action( 'init','register_post_type_video');
+
+function register_taxonomy_categoria(){
+  $labels = array(
+      'name'              => _x( 'Categoria', 'taxonomy general name' ),
+      'singular_name'     => _x( 'Categoria', 'taxonomy singular name' ),
+      'search_items'      => __( 'Procurar Categoria' ),
+      'all_items'         => __( 'Todas Categorias' ),
+      'parent_item'       => __( 'Categoria Pai' ),
+      'parent_item_colon' => __( 'Categoria Pai:' ),
+      'edit_item'         => __( 'Editar Categoria' ),
+      'update_item'       => __( 'Atualizar Categoria' ),
+      'add_new_item'      => __( 'Adicionar Categoria' ),
+      'new_item_name'     => __( 'Nome Nova Categoria' ),
+      'menu_name'         => __( 'Categoria' ),
+  );
+
+  $args = array(
+      'hierarchical'      => true,
+      'labels'            => $labels,
+      'show_ui'           => true,
+      'show_admin_column' => true,
+      'query_var'         => true,
+      'rewrite' => array( 'slug' => 'categoria' )
+  );
+register_taxonomy( 'categoria', 'video', $args );
+}
+add_action('init','register_taxonomy_categoria');
+
+function max_title_length( $title ) { 
+  $max = 60;
+  if( strlen( $title ) > $max ) {
+    return substr( $title, 0, $max ). " &hellip;";
+  } else {
+    return $title;
+  }
+}
+add_filter( 'the_title', 'max_title_length');
 
 /**
  * Enqueue scripts and styles.

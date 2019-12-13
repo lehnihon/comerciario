@@ -41,8 +41,7 @@ get_header(); ?>
                     Por <?php the_author()?>
                   </div>
                   <div class="options">
-                    <div class="comment op"><span class="comment-qtd">1</span><i class="far fa-comment-alt"></i></div>
-                    <div class="op"><i class="fas fa-share-alt"></i></div>
+                    <div class="comment op"><span class="comment-qtd"><?php echo get_comments_number(get_the_ID());?></span><i class="far fa-comment-alt"></i></div>
                   </div>
                 </div>
                 <div class="description">
