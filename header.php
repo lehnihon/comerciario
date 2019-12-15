@@ -14,7 +14,7 @@
 <body>
   <div id="header">
     <div class="text-center my-3">
-      <a href="#">
+      <a href="<?php echo home_url( '' ); ?>">
         <img class="img-fluid" src="<?php echo dirname( get_bloginfo('stylesheet_url'))."/assets/img/logo.png"; ?>"/>
       </a>
     </div>
@@ -27,9 +27,9 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav social-media mr-auto">
               <li class="nav-item">
-                <a href="https://www.facebook.com/falacomerciario/"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/falacomerciario9/"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/channel/UCdTUk87XZhEjaWGWWToWteg"><i class="fas fa-play"></i></a>
+                <a target="_blank" href="https://www.facebook.com/falacomerciario/"><i class="fab fa-facebook-f"></i></a>
+                <a target="_blank" href="https://www.instagram.com/falacomerciario9/"><i class="fab fa-instagram"></i></a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCdTUk87XZhEjaWGWWToWteg"><i class="fas fa-play"></i></a>
               </li>
             </ul>
             <ul class="navbar-nav main-nav">

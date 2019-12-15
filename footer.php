@@ -43,9 +43,9 @@
                     <div>contato@falacomerciarios.org.br</span><i class="fas fa-envelope ml-1"></i></div>
                 </p>
                 <div class="social-media">
-                    <a href="https://www.facebook.com/falacomerciario/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/falacomerciario9/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/channel/UCdTUk87XZhEjaWGWWToWteg"><i class="fas fa-play"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/falacomerciario/"><i class="fab fa-facebook-f"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/falacomerciario9/"><i class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://www.youtube.com/channel/UCdTUk87XZhEjaWGWWToWteg"><i class="fas fa-play"></i></a>
                 </div>
             </div>
         </div>

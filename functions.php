@@ -37,7 +37,7 @@ function register_post_type_video(){
   $args = array(
       'labels' => $labels,
       'public' => true,
-          'supports' => array('title','editor'),
+          'supports' => array('title'),
           'menu_position' => 5
       );
 
@@ -71,6 +71,39 @@ function register_taxonomy_categoria(){
 register_taxonomy( 'categoria', 'video', $args );
 }
 add_action('init','register_taxonomy_categoria');
+
+function wporg_add_custom_box()
+{
+    add_meta_box(
+        'wporg_box_id',           // Unique ID
+        'Extras',  // Box title
+        'wporg_custom_box_html',  // Content callback, must be of type callable
+        'video'                   // Post type
+    );
+}
+add_action('add_meta_boxes', 'wporg_add_custom_box');
+
+function wporg_custom_box_html($post)
+{
+	$link = get_post_meta($post->ID, 'link', true);
+    ?>
+	    <p>
+	    	<label>Url Vídeo: </label>
+		    <input style="width: 100%" type="text" name="link" value="<?php echo  esc_html($link) ?>">
+	    </p>
+    <?php
+}
+function wporg_save_postdata($post_id)
+{
+	if (array_key_exists('link', $_POST)) {
+        update_post_meta(
+            $post_id,
+            'link',
+            sanitize_text_field($_POST['link'])
+        );
+    }
+}
+add_action('save_post', 'wporg_save_postdata');
 
 function max_title_length( $title ) { 
   $max = 60;

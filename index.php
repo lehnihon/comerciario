@@ -32,7 +32,7 @@
             <div class="owl-noticias owl-carousel">
               <?php
               $args = array(
-                'posts_per_page' => 6,
+                'posts_per_page' => 3,
                 'category_name' => 'destaque' 
               );
               $query = new WP_Query( $args );
@@ -64,7 +64,8 @@
               <?php
               $args = array(
                 'posts_per_page' => 5,
-                'orderby' => 'rand'
+                'orderby' => 'rand',
+                'category__not_in' => array( 2)
               );
               $query = new WP_Query( $args );
               if ( $query->have_posts() ) : $query->the_post();
@@ -184,32 +185,21 @@
           <div class="row">
             <?php
             $args = array(
-              'posts_per_page' => 1,
-              'orderby' => 'rand',
+              'posts_per_page' => 4,
               'post_type' => 'video',
             );
             $query = new WP_Query( $args );
-            while ( $query->have_posts() ) : $query->the_post();
+            if ( $query->have_posts() ) : $query->the_post();
+              $link = get_post_meta(get_the_ID(), 'link', true);
+              $linkpart = explode("?v=",$link);
+              $linkpart_var = explode("&",$linkpart[1]);
             ?>
-            <div class="col-sm-6 pl-lg-5">
-              <a class="img-link" href="<?php the_permalink() ?>" title="">
-                <?php
-                if(has_post_thumbnail(get_the_ID())):
-                  the_post_thumbnail('home-thumb', array(
-                    'class' => "img-fluid",
-                  ));
-                endif;
-                ?>
-              </a>
+            <div class="col-sm-6 pl-lg-5 embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo (count($linkpart_var))? $linkpart_var[0]: ""; ?>" width="560" height="315" frameborder="0"></iframe>
             </div>
             <div class="col-sm-6">
               <div class="cat">
-              <?php
-              $cat_list = get_the_category(get_the_ID());
-              if(array_key_exists(0,$cat_list)){
-                echo $cat_list[0]->name;
-              }
-              ?>
+                Destaque
               </div>
               <?php the_title("<h3>","</h3>"); ?>
               <div class="conteudo">
@@ -217,10 +207,10 @@
               the_excerpt_shortcode();
               ?>
               </div>
-              <a class="btn-mais" href="<?php the_permalink() ?>">Mais Vídeos</a>
+              <a class="btn-mais" href="<?php echo home_url( '/videos' ); ?>">Mais Vídeos</a>
             </div>
             <?php
-            endwhile;
+            endif;
             ?>
           </div>
       </div>
@@ -235,24 +225,21 @@
           </div>
           <div class="row">
             <?php
-            $args = array(
-              'posts_per_page' => 3,
-              'orderby' => 'rand',
-            );
-            $query = new WP_Query( $args );
             while ( $query->have_posts() ) : $query->the_post();
+              $link = get_post_meta(get_the_ID(), 'link', true);
+              $linkpart = explode("?v=",$link);
+              $linkpart_var = explode("&",$linkpart[1]);
             ?>
             <div class="col-sm-4 mb-3">
-              <a href="<?php the_permalink() ?>" title="">
-                <div class="img-post" style='background-image: url("<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>");'>
-                </div>
-                <?php the_title("<h3>","</h3>"); ?>
-                <div class="post-date">
-                  <span>
-                    <?php echo get_the_date( 'd' );?> de <?php echo get_the_date( 'M' );?> de <?php echo get_the_date( 'Y' );?>
-                  </span>  
-                </div>
-              </a>
+              <div class=" embed-responsive embed-responsive-4by3 mb-3">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo (count($linkpart_var))? $linkpart_var[0]: ""; ?>" width="560" height="315" frameborder="0"></iframe>
+              </div>
+              <?php the_title("<h3>","</h3>"); ?>
+              <div class="post-date">
+                <span>
+                  <?php echo get_the_date( 'd' );?> de <?php echo get_the_date( 'M' );?> de <?php echo get_the_date( 'Y' );?>
+                </span>  
+              </div>
             </div>
             <?php
             endwhile;
