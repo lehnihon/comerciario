@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
         <div class="col-sm-12 text-center">
-            <h5>BOLETIM ELETRÔNICO</h5>
+            <h5>NEWSLETTER</h5>
             <h2>Receba as principais<br> notícias por e-mail</h2>
         </div>
         <div class="input-group mb-3 col-sm-4">

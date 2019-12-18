@@ -1,4 +1,9 @@
 @include media-breakpoint-down(sm) {
+    .news{
+        .mais-image{
+            height:158.5px !important;
+        }
+    }
     #header{
         .social-media{
             display:none !important;
