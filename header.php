@@ -30,12 +30,10 @@
                 <a target="_blank" href="https://www.facebook.com/falacomerciario/"><i class="fab fa-facebook-f"></i></a>
                 <a target="_blank" href="https://www.instagram.com/falacomerciario9/"><i class="fab fa-instagram"></i></a>
                 <a target="_blank" href="https://www.youtube.com/channel/UCdTUk87XZhEjaWGWWToWteg"><i class="fas fa-play"></i></a>
+                <a target="_blank" href="https://api.whatsapp.com/send?phone=5511945952106&text=Oi!"><i class="fab fa-whatsapp"></i></a>
               </li>
             </ul>
             <ul class="navbar-nav main-nav">
-              <li class="nav-item <?php echo (get_query_var('pagename') == '')? 'active' : ''; ?>">
-                <a class="nav-link" href="<?php echo home_url( '' ); ?>">Home</a>
-              </li>
               <li class="nav-item <?php echo (get_query_var('pagename') == 'quem-somos')? 'active' : ''; ?>">
                 <a class="nav-link" href="<?php echo home_url( '/quem-somos' ); ?>">Quem Somos</a>
               </li>
@@ -47,6 +45,15 @@
               </li>
               <li class="nav-item <?php echo (get_query_var('pagename') == 'acordo-e-convencoes')? 'active' : ''; ?>">
                 <a class="nav-link last" href="<?php echo home_url( '/acordo-e-convencoes' ); ?>">Acordo e Convenções</a>
+              </li>
+              <li class="nav-item <?php echo (get_query_var('pagename') == 'noticias')? 'active' : ''; ?>">
+                <a class="nav-link" href="<?php echo home_url( '/noticias' ); ?>">Notícias</a>
+              </li>
+              <li class="nav-item <?php echo (get_query_var('pagename') == 'videos')? 'active' : ''; ?>">
+                <a class="nav-link" href="<?php echo home_url( '/videos' ); ?>">Fala Comerciário TV</a>
+              </li>
+              <li class="nav-item <?php echo (get_query_var('pagename') == 'podcasts')? 'active' : ''; ?>">
+                <a class="nav-link" href="<?php echo home_url( '/podcasts' ); ?>">Podcasts</a>
               </li>
             </ul>
             <div class="navbar-nav search ml-auto">

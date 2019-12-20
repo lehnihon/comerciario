@@ -1,6 +1,77 @@
 <?php get_header(); ?>
 
 <div id="content">
+  <div id="banner" class="mb-5 d-sm-none">
+    <div class="container">
+      <a class="plus" href="<?php echo home_url( '/noticias' ); ?>"><span>+</span></a>
+      <div class="row no-gutters">
+        <div class="col-sm-5 order-sm-3 order-1 px-1">
+          <div class="banner-post">
+            <a class="owl-noticias-e" href="#"><i class="fas fa-chevron-left"></i></a>
+            <a class="owl-noticias-d" href="#"><i class="fas fa-chevron-right"></i></a>
+            <div class="owl-noticias owl-carousel">
+              <?php
+              $args = array(
+                'posts_per_page' => 3,
+                'category_name' => 'destaque' 
+              );
+              $query = new WP_Query( $args );
+              while ( $query->have_posts() ) : $query->the_post();
+              ?>
+              <article style='background-image: url("<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>");'>
+                <a href="<?php the_permalink() ?>">
+                  <h2 class="main-title"><?php the_title(); ?></h2>
+                </a>
+                <div class="options">
+                  <div class="comment op"><span class="comment-qtd"><?php echo get_comments_number(get_the_ID());?></span><i class="far fa-comment-alt"></i></div>
+                </div>
+              </article>
+              <?php
+              endwhile;
+              ?>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 order-sm-4 order-2 mb-sm-0 mb-3">
+          <div class="banner-post-b mb-1">
+            <div>
+              <?php
+              $args = array(
+                'posts_per_page' => 5,
+                'category__not_in' => array(2,8)
+              );
+              $query = new WP_Query( $args );
+              if ( $query->have_posts() ) : $query->the_post();
+              ?>
+              <article style='background-image: url("<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>");'>
+                <a href="<?php the_permalink() ?>">
+                  <h2 class="main-title"><?php the_title(); ?></h2>
+                </a>
+              </article>
+              <?php
+              endif;
+              ?>
+            </div>
+          </div>
+          <div class="banner-post-b">
+            <div>
+              <?php
+              if ( $query->have_posts() ) : $query->the_post();
+              ?>
+              <article style='background-image: url("<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>");'>
+                <a href="<?php the_permalink() ?>">
+                  <h2 class="main-title"><?php the_title(); ?></h2>
+                </a>
+              </article>
+              <?php
+              endif;
+              ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <div class="videos-resp d-sm-none">
       <div class="container">
@@ -19,10 +90,7 @@
             <div class="col-sm-6 pl-lg-5 embed-responsive embed-responsive-4by3">
             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo (count($linkpart_var))? $linkpart_var[0]: ""; ?>" width="560" height="315" frameborder="0"></iframe>
             </div>
-            <div class="col-sm-6">
-              <div class="cat">
-                Destaque
-              </div>
+            <div class="col-sm-6 pt-3">
               <?php the_title("<h3>","</h3>"); ?>
               <div class="conteudo">
               <?php
@@ -62,10 +130,39 @@
           endwhile;
           ?>
         </div>
-    </div>
+      </div>
     </div>
 
-  <div id="banner" class="mt-2">
+    <div id="banner" class="mt-5 mb-5 d-sm-none">
+    <div class="container">
+      <a class="plus" href="<?php echo home_url( '/noticias' ); ?>"><span>+</span></a>
+      <div class="row no-gutters">
+        <div class="col-sm-2 order-sm-1 pr-1 order-3">
+          <div class="banner-sind">
+            <div class="banner-box">
+              <img src="<?php echo dirname( get_bloginfo('stylesheet_url'))."/assets/img/sind.png"; ?>"/>
+              <h2>Sindicalize-se</h2>
+              <h4>Junte-se a quem<br> luta por você!</h4>
+            </div>
+            <a class="btn-sind" href="#">Saiba Mais</a>
+          </div>
+        </div>
+        <div class="col-sm-2 order-sm-2 order-4">
+          <div class="banner-sind-b">
+            <div class="banner-box">
+              <img src="<?php echo dirname( get_bloginfo('stylesheet_url'))."/assets/img/hand.png"; ?>"/>
+              <h2>Parceiros</h2>
+              <h4>Descontos e Benefícios<br> para Sindicalizados</h4>
+            </div>
+            <a class="btn-sind" href="<?php echo home_url( '/parceiros' ); ?>">Saiba Mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="banner" class="mt-2 d-sm-block d-none">
     <div class="container">
       <a class="plus" href="<?php echo home_url( '/noticias' ); ?>"><span>+</span></a>
       <div class="row no-gutters">
@@ -104,7 +201,6 @@
               ?>
               <article style='background-image: url("<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>");'>
                 <a href="<?php the_permalink() ?>">
-                  <div class="post-cat">EM DESTAQUE</div>
                   <h2 class="main-title"><?php the_title(); ?></h2>
                 </a>
                 <div class="options">
@@ -123,8 +219,7 @@
               <?php
               $args = array(
                 'posts_per_page' => 5,
-                'orderby' => 'rand',
-                'category__not_in' => array( 2)
+                'category__not_in' => array(2,8)
               );
               $query = new WP_Query( $args );
               if ( $query->have_posts() ) : $query->the_post();
@@ -195,7 +290,7 @@
         </div>
         <div class="col-lg-3 mt-lg-0 mt-4">
           <h2>Convênios</h2>
-          <a class="convenio" href="<?php echo home_url( '/parceiros' ); ?>" style='background-image: url("<?php echo dirname( get_bloginfo('stylesheet_url'))."/assets/img/convenio.jpg"; ?>");'">     
+          <a class="convenio" href="<?php echo home_url( '/parceiros' ); ?>" style='background-image: url("<?php echo dirname( get_bloginfo('stylesheet_url'))."/assets/img/banner-convenios.png"; ?>");'">     
           </a>
         </div>
       </div>
@@ -218,10 +313,7 @@
             <div class="col-sm-6 pl-lg-5 embed-responsive embed-responsive-4by3">
             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo (count($linkpart_var))? $linkpart_var[0]: ""; ?>" width="560" height="315" frameborder="0"></iframe>
             </div>
-            <div class="col-sm-6">
-              <div class="cat">
-                Destaque
-              </div>
+            <div class="col-sm-6 pt-3">
               <?php the_title("<h3>","</h3>"); ?>
               <div class="conteudo">
               <?php

@@ -9,7 +9,7 @@ get_header(); ?>
       $args = array(
         'posts_per_page' => 9,
         'paged' => $paged,
-        'category__not_in' => array(8)
+        'category_name' => 'podcasts' 
       );
       $query = new WP_Query( $args );
       if ( $query->have_posts() ):

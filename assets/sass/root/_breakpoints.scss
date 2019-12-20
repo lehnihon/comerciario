@@ -1,7 +1,7 @@
 @include media-breakpoint-down(sm) {
     .news{
         .mais-image{
-            height:158.5px !important;
+            height: 280px !important;
         }
     }
     #header{
@@ -22,6 +22,15 @@
         text-align:center !important;
         .footer-right{
             text-align: center !important;
+        }
+    }
+
+    #banner{
+        article{
+            height: 280px !important;
+        }
+        .main-title{
+            margin-top:10rem !important;
         }
     }
 }

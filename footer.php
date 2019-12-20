@@ -10,6 +10,7 @@
                     <a target="_blank" href="https://www.facebook.com/falacomerciario/"><i class="fab fa-facebook-f"></i></a>
                     <a target="_blank" href="https://www.instagram.com/falacomerciario9/"><i class="fab fa-instagram"></i></a>
                     <a target="_blank" href="https://www.youtube.com/channel/UCdTUk87XZhEjaWGWWToWteg"><i class="fas fa-play"></i></a>
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=5511945952106&text=Oi!"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>  
         </div> 
